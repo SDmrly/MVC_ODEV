@@ -1,0 +1,50 @@
+﻿@model MVC_ODEV.Models.Tbl_Admin
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AdminKayit</title>
+    <link href="~/CSS/Style.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>Sakarya BİP Otomotiv</h1>
+    <hr />
+    <div>
+        @using (Html.BeginForm())
+        {
+            <table border="1" cellpadding="5" cellspacing="0" width="500">
+                <tr>
+                    <td colspan="2"><h3>Admin Kayıt Ol</h3></td>
+                </tr>
+                <tr>
+                    <td>Ad Soyad</td>
+                    <td>@Html.EditorFor(model => model.AdSoyad)</td>
+                </tr>
+                <tr>
+                    <td>Kullanıcı Adı</td>
+                    <td>@Html.EditorFor(model => model.UserName)</td>
+                </tr>
+                <tr>
+                    <td>Şifre</td>
+                    <td>@Html.EditorFor(model => model.Sifre)</td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="submit" value="Kayıt Ol"></td>
+                </tr>
+            </table>
+        }
+        <p>@ViewData["sonuc"]</p>
+
+        <p>
+            @Html.ActionLink("Ana Sayfa", "Index", "Home") |
+            @Html.ActionLink("Giriş Yap", "AdminGiris")
+        </p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,67 @@
+﻿@model MVC_ODEV.Models.Tbl_Araclar
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+    <link href="~/CSS/Style.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <h1>Sakarya BİP Otomotiv</h1>
+        <hr />
+
+        <h3>Araç Bilgileri</h3>
+
+        <table border="1" cellpadding="5" cellspacing="0" width="600">
+            <tr>
+                <td rowspan="7">
+                    @{
+                        var dir = "/VehicleImages/" + Model.Arac_Id + ".jpg";
+                        string FolderPath = Path.Combine(Server.MapPath(dir));
+                        if (System.IO.File.Exists(FolderPath))
+                        {
+                            <img src="@Url.Content(dir)" width="300" />
+                        }
+
+                    }
+                </td>
+            </tr>
+            <tr>
+                <td width="30%">Marka</td>
+                <td>@Html.DisplayFor(model => model.Marka)</td>
+            </tr>
+            <tr>
+                <td width="30%">Model</td>
+                <td>@Html.DisplayFor(model => model.Model)</td>
+            </tr>
+            <tr>
+                <td width="30%">Model Yılı</td>
+                <td>@Html.DisplayFor(model => model.Model_Yili)</td>
+            </tr>
+            <tr>
+                <td width="30%">Yakıt</td>
+                <td>@Html.DisplayFor(model => model.Yakit)</td>
+            </tr>
+            <tr>
+                <td width="30%">Vites</td>
+                <td>@Html.DisplayFor(model => model.Vites)</td>
+            </tr>
+            <tr>
+                <td width="30%">Fiyat</td>
+                <td>@Html.DisplayFor(model => model.Fiyat) TL</td>
+            </tr>
+        </table>
+
+    </div>
+    <p>
+        @Html.ActionLink("Araç Listesi", "Index")
+    </p>
+</body>
+</html>

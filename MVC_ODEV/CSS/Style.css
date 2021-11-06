@@ -1,0 +1,25 @@
+﻿body {
+    background-color: #60a3bc;
+    font-family: Tahoma, Geneva, sans-serif;
+    font-optical-sizing: 14px;
+    color: #0c2461;
+    
+}
+
+table {
+    text-align: center;
+}
+
+a:link, a:visited{
+    color: aliceblue;
+    text-decoration: underline;
+}
+
+a:hover{
+    color: crimson;
+    text-decoration: none;
+}
+
+h1{
+    text-align: center;
+}

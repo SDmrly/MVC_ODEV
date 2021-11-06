@@ -1,0 +1,49 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>SifreDegistir</title>
+    <link href="~/CSS/Style.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>Sakarya BİP Otomotiv</h1>
+    <hr />
+    <div>
+        @using (Html.BeginForm())
+        {
+            <table border="1" cellpadding="5" cellspacing="0" width="500">
+                <tr>
+                    <td colspan="2"><h3>Şifre Değiştir</h3></td>
+                </tr>
+                <tr>
+                    <td>Mecvut Şifre</td>
+                    <td><input type="text" name="mevcutsifre" placeholder="Mevcut Şifre"/></td>
+                </tr>
+                <tr>
+                    <td>Yeni Şifre</td>
+                    <td><input type="text" name="yenisifre" placeholder="Yeni Şifre"/></td>
+                </tr>
+                <tr>
+                    <td>Yeni Şifreyi Onayla</td>
+                    <td><input type="text" name="yenisifre2" placeholder="Yeni Şifreyi Onayla"/></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="submit" value="Değiştir" /></td>
+                </tr>
+            </table>
+        }
+        <p>@ViewData["sonuc"]</p>
+        <p>
+            @Html.ActionLink("Ana Sayfa", "Index", "Home") |
+            @Html.ActionLink("Profil", "Profil") |
+            @Html.ActionLink("Oturumu Kapat", "Cikis")
+        </p>
+    </div>
+</body>
+</html>

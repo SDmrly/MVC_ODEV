@@ -1,0 +1,77 @@
+﻿@model IEnumerable<MVC_ODEV.Models.Tbl_Rezervasyonlar>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/CSS/Style.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>Sakarya BİP Otomotiv</h1>
+    <hr />
+    <h3>Rezervasyon Listesi</h3>
+    <table class="table" border="1" cellpadding="5" cellspacing="0" width="600">
+        <tr>
+            <th>Görüntü</th>
+            <th>Rezerv ID</th>
+            <th>Alma Tarihi</th>
+            <th>Teslim Tarihi</th>
+            <th>Ücret</th>
+            <th>İptal Mi</th>
+            <th>İptal Tarihi</th>
+            <th>İşlemler</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @{
+                        var dir = "/VehicleImages/" + item.Arac_Id + ".jpg";
+                        string FolderPath = Path.Combine(Server.MapPath(dir));
+                        if (System.IO.File.Exists(FolderPath))
+                        {
+                            <img src="@Url.Content(dir)" width="100" />
+                        }
+
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rezervasyon_Id)
+                </td>
+                <td>
+                    @Convert.ToString(string.Format("{0:dd/MM/yyy}", item.Alma_Tarihi))
+                </td>
+                <td>
+                    @Convert.ToString(string.Format("{0:dd/MM/yyy}", item.Teslim_Tarihi))
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ucret)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Iptal_Mi)
+                </td>
+                <td>
+                    @Convert.ToString(string.Format("{0:dd/MM/yyy}", item.Iptal_Tarihi))
+                </td>
+                <td>
+                    @Html.ActionLink("Detay", "Details", new { id = item.Rezervasyon_Id })
+                </td>
+            </tr>
+        }
+
+    </table>
+
+    <p>
+        @Html.ActionLink("Ana Sayfa", "Index", "Home") |
+        @Html.ActionLink("Profil", "Profil", "Customer") |
+        @Html.ActionLink("Araçlar", "Index", "Vehicle")
+    </p>
+</body>
+</html>

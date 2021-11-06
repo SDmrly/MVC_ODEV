@@ -1,0 +1,61 @@
+﻿@model MVC_ODEV.Models.Tbl_Araclar
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+    <link href="~/CSS/Style.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>Sakarya BİP Otomotiv</h1>
+    <hr />
+
+    <h3>Araç Güncelle</h3>
+    @using (Html.BeginForm())
+    {
+
+        <div>
+            @Html.AntiForgeryToken()
+            <table border="1" cellpadding="5" cellspacing="0" width="400">
+                <tr>
+                    <td>Marka</td>
+                    <td width="60%">@Html.EditorFor(model => model.Marka, new { htmlAttributes = new { @class = "form-control" } })</td>
+                </tr>
+                <tr>
+                    <td>Model</td>
+                    <td>@Html.EditorFor(model => model.Model, new { htmlAttributes = new { @class = "form-control" } })</td>
+                </tr>
+                <tr>
+                    <td>Model Yılı</td>
+                    <td>@Html.EditorFor(model => model.Model_Yili, new { htmlAttributes = new { @class = "form-control" } })</td>
+                </tr>
+                <tr>
+                    <td>Yakıt</td>
+                    <td>@Html.EditorFor(model => model.Yakit, new { htmlAttributes = new { @class = "form-control" } })</td>
+                </tr>
+                <tr>
+                    <td>Vites</td>
+                    <td>@Html.EditorFor(model => model.Vites, new { htmlAttributes = new { @class = "form-control" } })</td>
+                </tr>
+                <tr>
+                    <td>Fiyat</td>
+                    <td>@Html.EditorFor(model => model.Fiyat, new { htmlAttributes = new { @class = "form-control" } })</td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="submit" value="Kaydet" class="btn btn-default" /></td>
+                </tr>
+            </table>
+        </div>
+    }
+
+    <p>
+        @Html.ActionLink("Araç Listesi", "Index")
+    </p>
+</body>
+</html>

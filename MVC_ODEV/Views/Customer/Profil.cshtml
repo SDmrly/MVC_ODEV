@@ -1,0 +1,64 @@
+﻿@model MVC_ODEV.Models.Tbl_Musteriler
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Profil</title>
+    <link href="~/CSS/Style.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>Sakarya BİP Otomotiv</h1>
+    <hr />
+    <p></p>
+    <p><h3>Hoşgeldiniz @Session["session_tc"].ToString()</h3></p>
+    @using (Html.BeginForm())
+    {
+        <table border="1" cellpadding="5" cellspacing="0" width="500">
+            <tr>
+                <td colspan="2"><h3>Profil</h3></td>
+            </tr>
+            <tr>
+                <td width="40%">Tc Kimlik No</td>
+                <td>@Html.DisplayFor(model => model.Tc_Kimlik, new { htmlAttributes = new { style = "width:100px" } })</td>
+            </tr>
+            <tr>
+                <td>Ad Soyad</td>
+                <td>@Html.EditorFor(model => model.Ad_Soyad, new { htmlAttributes = new { style = "width:100px" } })</td>
+            </tr>
+            <tr>
+                <td>Doğum Tarihi</td>
+                <td>@Html.EditorFor(model => model.Dogum_Tarihi, new { htmlAttributes = new { style = "width:100px" } })</td>
+            </tr>
+            <tr>
+                <td>Cinsiyet</td>
+                <td>
+                    @Html.RadioButtonFor(model => model.Cinsiyet, "E")Erkek
+                    @Html.RadioButtonFor(model => model.Cinsiyet, "K")Kadın
+                </td>
+            </tr>
+            <tr>
+                <td>Telefon</td>
+                <td>@Html.EditorFor(model => model.Telefon, new { htmlAttributes = new { style = "width:100px" } })</td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="submit" value="Kaydet" /></td>
+            </tr>
+        </table>
+    }
+    <p></p>
+    <p>
+        @Html.ActionLink("Ana Sayfa", "Index", "Home") |
+        @Html.ActionLink("Profil", "Profil") |
+        @Html.ActionLink("Şifre Değiştir", "SifreDegistir") |
+        @Html.ActionLink("Oturumu Kapat", "Cikis") |
+        @Html.ActionLink("Rezervasyonlarım", "Index", "Rezervation") |
+        @Html.ActionLink("Araçlar", "Index", "Vehicle")
+    </p>
+</body>
+</html>

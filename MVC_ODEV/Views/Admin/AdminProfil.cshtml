@@ -1,0 +1,49 @@
+﻿@model MVC_ODEV.Models.Tbl_Admin
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Admin Profil</title>
+    <link href="~/CSS/Style.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>Sakarya BİP Otomotiv</h1>
+    <hr />
+
+    <p>
+        <h3>Hoşgeldiniz @Session["session_username"].ToString()</h3>
+    </p>
+    <div>
+        @using (Html.BeginForm())
+         {
+            <table border="1" cellpadding="5" cellspacing="0" width="500">
+                <tr>
+                    <td colspan="2"><h3>Admin Profil</h3></td>
+                </tr>
+                <tr>
+                    <td>Kullanıcı Adı</td>
+                    <td>@Html.DisplayFor(model => model.UserName)</td>
+                </tr>
+                <tr>
+                    <td>Ad Soyad</td>
+                    <td>@Html.DisplayFor(model => model.AdSoyad)</td>
+                </tr>
+
+            </table>
+         }
+
+    <p>
+        @Html.ActionLink("Ana Sayfa", "Index", "Home") |
+        @Html.ActionLink("Araç Yönetim", "Index", "VehicleYonet") |
+        @Html.ActionLink("Araç Listesi", "Index", "Vehicle") |
+        @Html.ActionLink("Oturumu Kapat", "AdminCikis") 
+    </p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/CSS/Style.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <h1>Sakarya BİP Otomotiv</h1>
+        <hr />
+        <h3>Amacımız :</h3>
+
+        <p>
+            Sakarya ili içerisindeki ikinci el araçların satış ve kiralaması ile ilgili işlemleri
+            online olarak yapılmasını sağlamaktır.
+        </p>
+
+        <p>
+            @Html.ActionLink("Ana Sayfa", "Index") |
+            @Html.ActionLink("Hakkımızda", "About") |
+            @Html.ActionLink("Araçlar", "Index", "Vehicle") |
+            @Html.ActionLink("Müşteri Giriş", "Giris", "Customer") |
+            @Html.ActionLink("Müşteri Profil", "Profil", "Customer") |
+            @Html.ActionLink("Yönetici Giriş", "AdminGiris", "Admin") |
+            @Html.ActionLink("Yönetici Profil", "AdminProfil", "Admin")
+        </p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>SaveImages</title>
+    <link href="~/CSS/Style.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div>
+        <h1>Sakarya BİP Otomotiv</h1>
+        <hr />
+
+        <h2>Araç Resim Ekleme</h2>
+        @using (Html.BeginForm("SaveImages", "VehicleYonet", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.Hidden("hiddenId", Url.RequestContext.RouteData.Values["id"])
+
+            <p>
+                @Html.TextBox("UploadedImage", "", new { type = "File" })
+            </p>
+            <p>
+                <input type="submit" value="Yükle" />
+            </p>
+        }
+        @{
+            if(ViewBag.Message != null)
+            {
+                var dir = "~/VehicleImages/" + Url.RequestContext.RouteData.Values["id"] + ".jpg";
+                @ViewBag.Message
+                <p>
+                    <img src="@Url.Content(dir)" width="300"/>
+                </p>
+            }
+        }
+
+        <p>@Html.ActionLink("Araç Listesi", "Index")</p>
+    </div>
+</body>
+</html>
